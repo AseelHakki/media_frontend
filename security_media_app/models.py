@@ -61,7 +61,7 @@ class MediMessages(models.Model):
 
 class MediaAtt(models.Model):
     idattch = models.UUIDField(default=uuid.uuid4, editable=False)
-    id_relt = models.ForeignKey(MediMessages, on_delete=models.CASCADE)
+    id_relt = models.ForeignKey('MediMessages', db_column='id_relt_id' ,on_delete=models.CASCADE)
     attch_title = models.CharField(max_length=300)
     attch_path = models.CharField(max_length=1000)
 
@@ -72,7 +72,7 @@ class MediaAtt(models.Model):
 class MediaIfad(models.Model):
 
     idifada = models.UUIDField(default=uuid.uuid4, editable=False)
-    id_relb = models.ForeignKey(MediMessages, on_delete=models.CASCADE)
+    id_relb = models.ForeignKey('MediMessages', db_column='id_relb_id' , on_delete=models.CASCADE)
     # id_relb = models.ForeignKey(MediMessages, related_name="Media_relation2", on_delete=models.CASCADE)
     ifada_title = models.CharField(max_length=300)
     ifada_path = models.CharField(max_length=1000)

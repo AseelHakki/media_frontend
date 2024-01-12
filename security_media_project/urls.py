@@ -15,6 +15,7 @@ from rest_framework_simplejwt.views import (
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
    def validate(self, attrs):
       data = super().validate(attrs)
+      print(data)
       # Assuming you have a serializer for your user model
       user_serializer = CustomUserSerializer(self.user).data
       data.update({'user': user_serializer})
